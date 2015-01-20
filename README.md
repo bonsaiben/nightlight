@@ -17,7 +17,8 @@ Inspired by [Cap Watkins](https://twitter.com/cap)' [The Dark Corners of Your UI
 ## Benefits
 
 - Keep fresh eyes on pages you don't see very often (onboarding, edge cases)
-- See what your automated tests aren't covering (CSS bugs, typos, bad impressions, forgot-to-update-that-too's)
+- Discover things your automated tests aren't catching (CSS bugs, typos, bad impressions, forgot-to-update-that-too's)
+- Discover things that user feedback isn't catching
 - Improve product quality and internal product awareness (each person check a random page every day?)
 - Share page-level meta info across a team (useful notes, gotchyas, how-to's, please-don't's)
 
