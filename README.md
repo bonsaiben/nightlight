@@ -4,6 +4,8 @@ Shed light on the dark corners of your app
 
 Nightlight helps you make sure all pages in your app are getting the love and attention they deserve
 
+Inspired by [Cap Watkins](https://twitter.com/cap)' [The Dark Corners of Your UI](http://blog.capwatkins.com/dark-corners)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -53,6 +55,12 @@ authenticate :user, lambda{|user| user.admin? } do
   mount Nightlight::Engine, at: "nightlight"
 end
 ```
+
+### Credit
+
+Inspired by:
+- [Cap Watkins](https://twitter.com/cap)' [The Dark Corners of Your UI](http://blog.capwatkins.com/dark-corners)
+- [@ankane](https://github.com/ankane)'s [ankane/blazer](https://github.com/ankane/blazer)
 
 ## Contributing
 
