@@ -1,0 +1,34 @@
+<%= form_for @page do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Awesome Page" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :path %>
+    <%= f.text_field :path, class: 'form-control', placeholder: "Abstract path (e.g. /posts/:id)" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sample_path %>
+    <%= f.text_field :sample_path, class: 'form-control', placeholder: "Optional real path to link to (e.g. /posts/1)" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reqs, 'Controller' %>
+    <%= f.text_field :reqs, class: 'form-control', placeholder: "controller#action" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, class: 'form-control', placeholder: 'Useful/important info about the page. e.g. "check signed in and signed out states", "be sure to test on IE 4+", "please check on staging only", etc.' %>
+  </div>
+  <div class="checkbox">
+    <%= f.label :hidden do %>
+      <%= f.check_box :hidden %>
+      Hide this page
+    <% end %>
+  </div>
+  <div class="text-center">
+    <%= f.submit 'Save', class: 'btn btn-default btn-lg' %>
+  </div>
+<% end %>
+
+
+

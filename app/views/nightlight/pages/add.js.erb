@@ -1,0 +1,13 @@
+<% if @page.valid? %>
+
+var html = "<%= j(render('layouts/nightlight/alert', success: "Settings saved.")) %>";
+$('#alerts').html(html);
+var path = "<%= j(@page.path) %>";
+$('.new-page[data-path="'+path+'"]').remove();
+
+<% else %>
+
+var html = "<%= j(render('layouts/nightlight/alert', error: @page.errors.full_messages.first)) %>";
+$('#alerts').html(html);
+
+<% end %>

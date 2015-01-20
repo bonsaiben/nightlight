@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nightlight</title>
+
+    <meta charset="utf-8" />
+
+    <%= stylesheet_link_tag "nightlight/application" %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "nightlight/application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div id="alerts">
+        <%= render 'layouts/nightlight/alert' %>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

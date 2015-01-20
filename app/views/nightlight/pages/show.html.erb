@@ -1,0 +1,67 @@
+<div class="clearfix" style="margin-bottom:20px">
+  <div class="pull-right">
+    <%= link_to "Edit", edit_page_path(@page), class: 'btn btn-default' %>
+  </div>
+  <%= link_to "Home", root_path, class: 'btn btn-default pull-left', style: 'margin-right:20px' %>
+  <h2 style="margin:0">
+    <%= @page.name %>
+    <small>
+    <small>
+      <%= render 'nightlight/pages/brightness', page: @page %>
+      <%= last_checked_at @page %>
+    </small>
+    </small>
+  </h2>
+</div>
+
+<p><%= @page.notes %></p>
+
+<dl class="dl-horizontal">
+  <dt>Path<dt>
+  <dd><%= link_to_page @page %></dd>
+  <dt>Controller<dt>
+  <dd><%= @page.reqs %></dd>
+</dl>
+
+<div class="well text-center">
+<% if @page.assignee %>
+  <% if @page.assignee == current_user %>
+    <h3 style="margin-top:0">You are checking this</h3>
+    <%= link_to "Done!", checked_page_path(@page), class: 'btn btn-primary btn-lg', data: {method: :post} %>
+    <br/>
+    <%= link_to "Cancel", unassign_page_path(@page), data: {method: :post} %>
+  <% else %>
+    <h3 style="margin-top:0"><%= @page.assignee.name %> is checking this</h3>
+    <%= link_to "Checked it anyway?", checked_page_path(@page), data: {method: :post} %>
+  <% end %>
+<% else %>
+  <h3 style="margin-top:0">Nobody is checking this</h3>
+  <%= link_to "I'll check it", assign_page_path(@page), class: 'btn btn-default btn-lg', data: {method: :post} %>
+  <br/>
+  <%= link_to "Already checked it?", '#' %>
+<% end %>
+</div>
+
+
+<h3>Status</h3>
+
+<% if status = @page.current_status %>
+  <%= render 'nightlight/pages/activity', activity: status, current_status: true %>
+<% else %>
+  <p class="text-muted">There is no status</p>
+<% end %>
+
+<%= form_for [@page,@status] do |f| %>
+  <div class="form-group">
+    <%= f.text_area :description, placeholder: "Find a new problem? Existing problem fixed? Describe it here. Be sure to include relevant links to issue tracker, etc.", class: 'form-control' %>
+  </div>
+  <%= f.submit 'Update status', class: 'btn btn-default' %>
+<% end %>
+
+
+<h3>Activity</h3>
+
+<% @page.activities.each do |activity| %>
+  <%= render 'nightlight/pages/activity', activity: activity %>
+  <hr/>
+<% end %>

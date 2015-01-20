@@ -1,0 +1,14 @@
+/*
+ *= require ./bootstrap.min
+ *= require ./font-awesome.min
+ *= require ./pages
+ *= require_self
+ */
+
+body {
+  padding-top: 30px;
+}
+
+table tr td {
+  word-break: break-all;
+}

@@ -1,0 +1,42 @@
+<% hidden ||= false %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Path</th>
+      <% unless hidden %>
+      <th>Last Checked</th>
+      <% end %>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% pages.each do |page| %>
+      <tr class="page" data-path="<%= page.path %>">
+        <td><%= link_to page.name.presence||'untitled', page_path(page) %></td>
+        <td><%= page.path %></td>
+        <% unless hidden %>
+          <td>
+            <%= render 'nightlight/pages/brightness', page: page %>
+            <%= last_checked_at page %>
+          </td>
+          <td>
+            <% if page.assignee && page.assignee==current_user %>
+              <%= link_to 'You', page_path(page), class: 'btn btn-primary btn-xs' %>
+            <% elsif page.assignee %>
+              <%= link_to page.assignee.name, page_path(page), class: 'btn btn-warning btn-xs' %>
+            <% else %>
+              <%= link_to "Check", assign_page_path(page), class: 'btn btn-default btn-xs', data: {method: :post} %>
+            <% end %>
+          </td>
+        <% else %>
+          <td>
+            <%= link_to "Edit", edit_page_path(page), class: 'btn btn-default btn-xs' %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

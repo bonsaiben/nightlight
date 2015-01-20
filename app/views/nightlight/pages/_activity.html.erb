@@ -1,0 +1,19 @@
+<% current_status ||= false %>
+<div class="activity" style="margin-bottom:10px">
+  <% unless current_status %>
+    <p><%= activity.to_s %></p>
+  <% end %>
+  <% if activity.status? %>
+    <div class="panel panel-default" style="margin-bottom:0">
+      <div class="panel-body">
+        <p><%= activity.description %></p>
+      </div>
+    </div>
+  <% end %>
+  <small>
+    <% if current_status %>
+      <%= activity.user_name %>,
+    <% end %>
+    <%= time_ago_in_words activity.created_at %> ago
+  </small>
+</div>

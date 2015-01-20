@@ -1,0 +1,11 @@
+<%- success = success || flash[:success] %>
+<%- error = error || flash[:error] %>
+<% if success %>
+  <div class="alert alert-success">
+    <%= success %>
+  </div>
+<% elsif error %>
+  <div class="alert alert-danger">
+    <%= error %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+.brightness {
+  padding: 0.3em 0.5em;
+  border-radius: 50px;
+  color: #fff
+}
+
+.brightness-on {
+}
+
+.brightness-0, .brightness-off {
+  background-color: #13385C;
+  color: #000;
+}
+.brightness-1 {
+  background-color: #2A5978;
+  color: #67A192;
+}
+.brightness-2 {
+  background-color: #67A192;
+  color: #B6DE90;
+}
+.brightness-3 {
+  background-color: #B6DE90;
+  color: #FFFF99;
+}
+.brightness-4 {
+  background-color: #FFFF99;
+  color: #fff;
+}
+
