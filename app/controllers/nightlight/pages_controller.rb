@@ -48,19 +48,23 @@ module Nightlight
 
     def add_yes
       @page = Page.new page_params
-      @page.save
-      respond_to do |format|
-        format.js { render 'nightlight/pages/add' }
+      if @page.save
+        flash[:success] = "Page added."
+      else
+        flash[:error] = @page.errors.full_messages.first
       end
+      redirect_to root_url
     end
 
     def add_no
       @page = Page.new page_params
       @page.hidden = true
-      @page.save
-      respond_to do |format|
-        format.js { render 'nightlight/pages/add' }
+      if @page.save
+        flash[:success] = "Settings saved."
+      else
+        flash[:error] = @page.errors.full_messages.first
       end
+      redirect_to root_url
     end
 
     def assign

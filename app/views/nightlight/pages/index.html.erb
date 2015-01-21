@@ -33,8 +33,8 @@
               <td><%= page[:path] %></td>
               <td><%= page[:reqs] %></td>
               <td>
-                <%= link_to 'Yes', add_yes_pages_path(page: {name: page[:name], path: page[:path], reqs: page[:reqs]}), class: 'btn btn-default btn-xs', data: {remote: true, method: :post} %>
-                <%= link_to 'No', add_no_pages_path(page: {name: page[:name], path: page[:path], reqs: page[:reqs]}), class: 'btn btn-default btn-xs', data: {remote: true, method: :post} %>
+                <%= link_to 'Yes', add_yes_pages_path(page: {name: page[:name], path: page[:path], reqs: page[:reqs]}), class: 'btn btn-default btn-xs', data: {method: :post} %>
+                <%= link_to 'No', add_no_pages_path(page: {name: page[:name], path: page[:path], reqs: page[:reqs]}), class: 'btn btn-default btn-xs', data: {method: :post} %>
               </td>
             </tr>
           <% end %>
