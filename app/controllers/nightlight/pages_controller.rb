@@ -46,6 +46,12 @@ module Nightlight
       end
     end
 
+    def destroy
+      @page.destroy
+      flash[:success] = "Page deleted."
+      redirect_to root_url
+    end
+
     def add_yes
       @page = Page.new page_params
       if @page.save

@@ -15,3 +15,5 @@
 </div>
 
 <%= render 'nightlight/pages/form' %>
+
+<%= link_to 'Delete this page', page_path(@page), data: {method: :delete, confirm: "Are you sure?"}, class: 'text-danger pull-right' %>
