@@ -41,10 +41,14 @@
 <h2>Pages</h2>
 <%= render 'nightlight/pages/pages', pages: @pages %>
 
-<% if @hidden_pages %>
-  <h2 id="hidden">Hidden Pages</h2>
-  <%= render 'nightlight/pages/pages', pages: @hidden_pages, hidden: true %>
+<% if params[:all] %>
+  <h4 id="hidden">Hidden Pages</h4>
+  <% if @hidden_pages.any? %>
+    <%= render 'nightlight/pages/pages', pages: @hidden_pages, hidden: true %>
+  <% else %>
+    <p class="text-muted">There are no hidden pages.</p>
+  <% end %>
 <% else %>
-  <%= link_to "Show hidden pages", pages_path(hidden: true, anchor: 'hidden') %>
+  <%= link_to "Show all pages", pages_path(all: true) %>
 <% end %>
 

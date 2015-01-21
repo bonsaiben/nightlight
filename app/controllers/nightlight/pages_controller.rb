@@ -8,7 +8,8 @@ module Nightlight
       @new_pages = routes_pages.select do |r|
         Nightlight::Page.where(path: r[:path]).none?
       end
-      if params[:hidden]
+
+      if params[:all]
         @hidden_pages = Nightlight::Page.hidden
       end
     end
