@@ -12,7 +12,6 @@ module Nightlight
 
     def link_to_page page
       path = page.sample_path.presence || page.path
-      path = path.sub(/\(\.:format\)$/,'')
       link_to page.path, path, target: '_blank'
     end
 

@@ -123,8 +123,8 @@ module Nightlight
       all_routes = Rails.application.routes.routes
       require 'action_dispatch/routing/inspector'
       inspector = ActionDispatch::Routing::RoutesInspector.new(all_routes)
-      routes = inspector.send(:collect_routes, all_routes)
-      routes.select{|r| r[:verb]=="GET" }
+      routes = inspector.send(:collect_routes, all_routes).dup
+      routes.select{|route| route.tap{|r| r[:path] = r[:path].sub(/\(\.:format\)$/,'') }[:verb]=="GET" }
     end
 
     def set_page
