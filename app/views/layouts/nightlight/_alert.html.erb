@@ -1,11 +1,16 @@
 <%- success = success || flash[:success] %>
 <%- error = error || flash[:error] %>
+<%- notice = notice || flash[:notice] %>
 <% if success %>
-  <div class="alert alert-success">
+  <div class="alert alert-success text-center">
     <%= success %>
   </div>
 <% elsif error %>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger text-center">
     <%= error %>
+  </div>
+<% elsif notice %>
+  <div class="alert alert-warning text-center">
+    <%= notice %>
   </div>
 <% end %>

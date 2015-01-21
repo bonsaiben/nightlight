@@ -1,14 +1,20 @@
 <div class="clearfix" style="margin-bottom:20px">
   <div class="pull-right">
     <%= link_to "New Page", new_page_path, class: 'btn btn-default' %>
-    <%= link_to "Check Random Page", random_pages_path, class: 'btn btn-primary', data: {method: :post} %>
+    <%= link_to "Check Random Page", random_pages_path, class: "btn btn-primary #{'disabled' unless @pages.any?}", data: {method: :post} %>
   </div>
   <h3 style="margin:0"><%= render 'nightlight/pages/brightness', brightness: avg_page_brightness(@pages) %></h3>
 </div>
 
+<% if @pages.empty? %>
+  <div class="alert alert-success text-center">
+    Welcome! <code>GET</code> routes in your <code>config/routes.rb</code> can be imported below. You can also register pages manually by clicking <strong>New Page</strong>.
+  </div>
+<% end %>
+
 <% if @new_pages.any? %>
   <div class="panel panel-warning">
-    <div class="panel-heading" style="text-align:center">New pages found</div>
+    <div class="panel-heading" style="text-align:center">New <code>GET</code> routes found in <code>config/routes.rb</code>:</div>
     <div class="panel-body">
       <table class="table">
         <thead>
@@ -36,10 +42,18 @@
       </table>
     </div>
   </div>
+<% elsif @pages.empty? %>
+  <div class="alert alert-warning text-center">
+    No <code>GET</code> routes found in <code>config/routes.rb</code>.
+  </div>
 <% end %>
 
 <h2>Pages</h2>
-<%= render 'nightlight/pages/pages', pages: @pages %>
+<% if @pages.any? %>
+  <%= render 'nightlight/pages/pages', pages: @pages %>
+<% else %>
+  <p class="text-muted">There are no pages.</p>
+<% end %>
 
 <% if params[:all] %>
   <h4 id="hidden">Hidden Pages</h4>

@@ -2,8 +2,12 @@ module Nightlight
   module PagesHelper
 
     def avg_page_brightness pages
-      avg = pages.map(&:brightness).sum.to_f / pages.size.to_f
-      avg.to_i
+      if pages.any?
+        avg = pages.map(&:brightness).sum.to_f / pages.size.to_f
+        avg.to_i
+      else
+        0
+      end
     end
 
     def link_to_page page
