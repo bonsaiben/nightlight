@@ -4,7 +4,12 @@ Shed light on the dark corners of your app
 
 Nightlight is an admin interface for tracking what pages are (not) being checked by your team
 
+[Demo available here](http://nightlight-demo.herokuapp.com/nightlight)
+
+![Screenshot](https://cloud.githubusercontent.com/assets/227274/5839169/ca4585fe-a1cf-11e4-8491-39ab7a6f1948.png)
+
 Inspired by [Cap Watkins](https://twitter.com/cap)' [The Dark Corners of Your UI](http://blog.capwatkins.com/dark-corners)
+
 
 ## Features
 
