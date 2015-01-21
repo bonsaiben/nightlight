@@ -25,7 +25,7 @@
 
 <div class="well text-center">
 <% if @page.assignee %>
-  <% if @page.assignee == current_user %>
+  <% if respond_to?(:current_user) && @page.assignee == current_user %>
     <h3 style="margin-top:0">You are checking this</h3>
     <%= link_to "Done!", checked_page_path(@page), class: 'btn btn-primary btn-lg', data: {method: :post} %>
     <br/>

@@ -22,7 +22,7 @@
             <%= last_checked_at page %>
           </td>
           <td>
-            <% if page.assignee && page.assignee==current_user %>
+            <% if page.assignee && respond_to?(:current_user) && page.assignee==current_user %>
               <%= link_to 'You', page_path(page), class: 'btn btn-primary btn-xs' %>
             <% elsif page.assignee %>
               <%= link_to page.assignee.name, page_path(page), class: 'btn btn-warning btn-xs' %>

@@ -1,5 +1,7 @@
 module Nightlight
   class PagesController < BaseController
+
+    before_action :enforce_current_user, only: [:edit, :update, :new, :create, :destroy, :assign, :unassign, :checked, :add_yes, :add_no, :random]
     before_action :set_page, only: [:show, :edit, :update, :destroy, :assign, :unassign, :checked]
     before_action :authorize_assignee, only: [:unassign]
 

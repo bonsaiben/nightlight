@@ -1,11 +1,12 @@
 module Nightlight
   class ActivitiesController < BaseController
 
+    before_action :enforce_current_user, only: [:create]
     before_action :set_page
 
     def create
       @status = @page.activities.status.new activity_params
-      @status.user = current_user if respond_to?(:current_user)
+      @status.user = current_user
       if @status.save
         flash[:success] = "Status updated."
         redirect_to page_url(@page)

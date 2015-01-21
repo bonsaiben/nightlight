@@ -12,5 +12,14 @@ module Nightlight
     end
 
     layout "nightlight/application"
+
+    private
+
+    def enforce_current_user
+      unless respond_to?(:current_user) && current_user
+        flash[:error] = "This feature requires a logged in user."
+        redirect_to root_url
+      end
+    end
   end
 end
