@@ -10,7 +10,11 @@ module Nightlight
     scope :unassigned, ->{ where assignee_id: nil }
 
     def to_param
-      [id, name.gsub("'", "").parameterize].join("-")
+      if name.present?
+        [id, name.gsub("'", "").parameterize].join("-")
+      else
+        id
+      end
     end
 
     def brightness
