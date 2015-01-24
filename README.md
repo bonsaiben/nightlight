@@ -2,25 +2,30 @@
 
 Shed light on the dark corners of your app
 
-Nightlight is an admin interface for tracking what pages are (not) being checked by your team
+Nightlight is an admin tool that helps teams keep a fresh eye on all parts of their app, especially those parts that are commonly overlooked (until it's a big problem).
+
+[Demo available here](http://nightlight-demo.herokuapp.com/nightlight)
+
+![Screenshot](https://cloud.githubusercontent.com/assets/227274/5839169/ca4585fe-a1cf-11e4-8491-39ab7a6f1948.png)
 
 Inspired by [Cap Watkins](https://twitter.com/cap)' [The Dark Corners of Your UI](http://blog.capwatkins.com/dark-corners)
 
+
 ## Features
 
-- Indicate when you've checked a page and leave a comment (all good? bugs? link to Trello card?)
-- See what pages haven't been checked in a while
-- Sync with `GET` routes from `config/routes.rb`, or maintain your own list of pages
-- Assign pages to yourself to check, and see who's already checking what
-- Get a random page to check that nobody else is checking
+- Maintain a list of parts/pages/UI in your app ("pages" for simplicity). Easily sync with `GET` routes in your `config/routes.rb`, or manage the list manually as you need.
+- Indicate when you've checked/tested a page, with an optional status update (all good? any bugs? link to Trello card?)
+- See which pages haven't been checked/tested in a while (I'm looking at you, password reset page)
+- Assign pages to yourself to check, and see what other team members are checking
+- Click a button to get a random page that nobody else is checking
 
 ## Benefits
 
-- Keep fresh eyes on pages you don't see very often (onboarding, edge cases)
+- Keep fresh eyes on pages/UI your team doesn't see very often (onboarding, edge cases)
 - Discover things your automated tests aren't catching (CSS bugs, typos, bad impressions, forgot-to-update-that-too's)
 - Discover things that user feedback isn't catching
-- Improve product quality and internal product awareness (each person check a random page every day?)
-- Share page-level meta info across a team (useful notes, gotchyas, how-to's, please-don't's)
+- Improve product quality and internal product awareness (try: everyone on the team checks a random page every day)
+- A way to share useful page/UI-level meta info across the team (useful notes, gotchyas, how-to's, please-don't's)
 
 ## Installation
 
