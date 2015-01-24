@@ -19,7 +19,7 @@
         <% unless hidden %>
           <td>
             <%= render 'nightlight/pages/brightness', page: page %>
-            <%= last_checked_at page %>
+            <%= last_checked_at page, short: true %>
           </td>
           <td>
             <% if page.assignee && respond_to?(:current_user) && page.assignee==current_user %>

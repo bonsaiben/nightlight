@@ -15,12 +15,15 @@ module Nightlight
       link_to page.path, path, target: '_blank'
     end
 
-    def last_checked_at page
-      if page.last_checked_at
-        "last checked #{time_ago_in_words(page.last_checked_at)} ago"
-      else
-        "last checked ??"
-      end
+    def last_checked_at page, opts={}
+      lead = opts[:short] ? "" : "last checked "
+      time =
+        if page.last_checked_at
+          "#{time_ago_in_words(page.last_checked_at)} ago"
+        else
+          "??"
+        end
+      "#{lead}#{time}"
     end
 
   end
