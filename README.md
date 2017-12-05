@@ -2,7 +2,7 @@
 
 Shed light on the dark corners of your app
 
-Nightlight is an admin tool that helps teams keep a fresh eye on all parts of their app, especially those parts that are commonly overlooked (until it's a big problem).
+Nightlight is an admin tool that helps teams keep a fresh eye on all parts of their app, especially those parts that are commonly overlooked (until it becomes a problem).
 
 [Demo available here](http://nightlight-demo.herokuapp.com/nightlight)
 
